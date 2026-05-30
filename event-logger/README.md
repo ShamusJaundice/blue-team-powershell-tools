@@ -25,6 +25,9 @@ Collects events from all Windows event logs, surfaces rare event ID + provider c
 
 # Cast a wider net per log
 .\Invoke-EventLogIntel.ps1 -DaysBack 14 -MaxPerLog 5000
+
+# Enrich more events (free tier allows ~1500 requests/day total)
+.\Invoke-EventLogIntel.ps1 -MaxEnrich 50
 ```
 
 ## Parameters
@@ -34,6 +37,7 @@ Collects events from all Windows event logs, surfaces rare event ID + provider c
 | `DaysBack`      | `7`     | How far back in time to collect events                            |
 | `RareThreshold` | `5`     | Events seen this many times or fewer are flagged as rare          |
 | `MaxPerLog`     | `1000`  | Cap on events collected from each individual log (performance guard) |
+| `MaxEnrich`     | `25`    | Maximum rare events sent to Gemini (rarest first). Raise cautiously — the free tier rate-limits aggressively. |
 
 ## Setting your API key
 
