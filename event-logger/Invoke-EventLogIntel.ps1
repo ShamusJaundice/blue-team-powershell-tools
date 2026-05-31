@@ -271,6 +271,11 @@ Respond ONLY with a JSON object — no markdown fences, no text outside the JSON
 
         Write-Host " done." -ForegroundColor Green
 
+        # Throttle to stay under the Gemini per-minute rate limit. Only sleep on
+        # success — failed calls didn't consume a successful-request quota slot,
+        # and we don't want to slow down the retry/error path.
+        Start-Sleep -Seconds 3
+
         [PSCustomObject]@{
             EventId            = $Event.EventId
             ProviderName       = $Event.ProviderName
