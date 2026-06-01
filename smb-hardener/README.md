@@ -63,5 +63,3 @@ The script sets capability flags up front (`$HasSmbCmdlets`, `$HasCimInstance`, 
 | `AuditOnly`    | off           | Scan and report only; skip remediation entirely          |
 | `AutoConfirm`  | off           | Apply remediations without the interactive confirmation  |
 | `ReportPath`   | script folder | Directory for the timestamped text report                |
-
-> **Status:** complete. All five regions are implemented — OS detection, scanner, report, remediation (with confirmation + per-fix verification), and timestamped text output.
